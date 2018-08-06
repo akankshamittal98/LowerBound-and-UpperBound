@@ -32,6 +32,19 @@ int main()
         {
             m++;
             printf("\nlower bound=%d",m);
+            break;
+        }
+    }
+    while(m<=10)
+    {
+        if(a[m]==n)
+           {
+               m++;
+           }
+        else
+        {
+            m--;
+            printf("\nupper bound=%d",++m);
             return;
         }
     }
