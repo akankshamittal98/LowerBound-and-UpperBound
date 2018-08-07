@@ -1,51 +1,37 @@
 #include<stdio.h>
 int main()
 {
-    int a[]={1,2,2,2,2,3,3,3,4,5,6};
+    int a[]={1,2,2,2,2,3,3,3,5,6};
     int l=0,r=10;
     int n,m;
     scanf("%d",&n);
-    while(l<=r)
+    while(l<r)
     {
         m=(l+r)/2;
-        if(n==a[m])
+        if(a[m]>=n)
         {
-            break;
-        }
-        if(n<a[m])
-        {
-            r=m-1;
+            r=m;
         }
 
-        else if(n>a[m])
+        else
         {
             l=m+1;
         }
     }
-    while(m>=0)
+    printf("lower bound=%d\n",l);
+    l=0; r=10;
+     while(l<r)
     {
-        if(a[m]==n)
-           {
-               m--;
-           }
+        m=(l+r)/2;
+        if(a[m]>n)
+        {
+            r=m;
+        }
+
         else
         {
-            m++;
-            printf("\nlower bound=%d",m);
-            break;
+            l=m+1;
         }
     }
-    while(m<=10)
-    {
-        if(a[m]==n)
-           {
-               m++;
-           }
-        else
-        {
-            m--;
-            printf("\nupper bound=%d",++m);
-            return;
-        }
-    }
+    printf("upper bound =%d\n",l);
 }
